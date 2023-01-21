@@ -30,7 +30,7 @@ function App() {
   }
 
   function sortByName() {
-    const sortedContacts = contact.sort((a, b) => {
+    const sortedContacts = [...contact].sort((a, b) => {
       if (a.name < b.name) {
         return -1;
       }
@@ -44,7 +44,9 @@ function App() {
   }
 
   function sortByPopularity() {
-    const sortedContacts = contact.sort((a, b) => b.popularity - a.popularity);
+    const sortedContacts = [...contact].sort(
+      (a, b) => b.popularity - a.popularity
+    );
 
     setContact(sortedContacts);
   }
